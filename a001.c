@@ -1,6 +1,5 @@
 // https://replit.com/@andy8787main/a001-c-1#main.c
 // https://zerojudge.tw/ShowProblem?problemid=a001
-// C我比較不熟
 #include <stdio.h>
 
 int main(void) {
