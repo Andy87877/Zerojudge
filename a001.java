@@ -6,5 +6,6 @@ class Main { // main
         Scanner cin = new Scanner(System.in); // cin
         String str = cin.nextLine(); // cin
         System.out.println("hello, "+str); // cout
+        cin.close();
     }
 }
