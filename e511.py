@@ -2,7 +2,7 @@
 # https://zerojudge.tw/ShowProblem?problemid=e511
 
 times = eval(input())
-for timess in range(times):
+for t in range(times):
     n = eval(input())
     l = [int(i) for i in input().split(' ')]
     ans = (((max(l))-(min(l)-1))*2)-2; #好像是還要回到停車位的路程
