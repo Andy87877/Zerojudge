@@ -4,7 +4,10 @@
 
 int main(void) {
     char str[80]; 
+    
     scanf("%s", str);
+    
     printf("hello, %s", str);
+    
     return 0;
 }
