@@ -21,3 +21,6 @@ int main() {
         cout << judge(num) << endl;
     }
 } 
+
+
+
