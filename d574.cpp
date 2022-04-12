@@ -5,7 +5,6 @@
 #define int long long
 using namespace std;
 
-
 signed main() {
     int n;
     while(cin >> n) {
