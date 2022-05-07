@@ -1,4 +1,4 @@
-// https://zerojudge.tw/Submissions
+// https://zerojudge.tw/ShowProblem?problemid=f925
 #include <iostream>
 using namespace std;
 
