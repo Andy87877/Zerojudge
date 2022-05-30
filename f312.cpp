@@ -1,8 +1,5 @@
+// https://zerojudge.tw/ShowProblem?problemid=f312
 #include <iostream>
-// #include <cmath>
-// #include <map>
-// #include <string>
-// #include <algorithm>
 #define ll long long
 using namespace std;
 
