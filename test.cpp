@@ -5,7 +5,14 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    int num = 4;
-    int* ptr = &num;
-    cout << ptr << "\n";
+    vector<int> vec = {0,1,2,3,4,5,6,7};
+
+    for (auto i = vec.begin(); i != vec.end(); ++i) {
+        cout << *i << " ";
+    } 
+    cout << endl;
+
+    for (auto i = vec.begin(); i != vec.end(); i++) {
+        cout << *i << " ";
+    } 
 }
