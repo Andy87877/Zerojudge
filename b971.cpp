@@ -5,5 +5,11 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << "hello world :)\n";
+    ll a,b,c;
+    cin >> a >> b >> c;
+    while (a != b) {
+        cout << a << " ";
+        a += c;
+    }
+    cout << b << "\n";
 }
