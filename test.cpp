@@ -5,5 +5,5 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << "hello world :)\n";
+    cout << "ha\n";
 }
