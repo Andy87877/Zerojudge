@@ -1,22 +1,23 @@
+// 心得如下
+// https://hackmd.io/brkWfna0QBuMtwqq_hwS0A
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     ios::sync_with_stdio(0),cin.tie(0);cout.tie(0);
-    int t;
+    // 次數 深度 第幾顆球 答案 暫存(次方)
+    int t, d, a, ans, temp;
     scanf("%d", &t);
     while(t--) {
-        // 深度 第幾顆球 答案
-        int d, a, ans = 0;
         scanf("%d %d", &d, &a);
-        ans = pow(2, d-1);
-        for (int i = 1; (a >= (int(pow(2,i-1)))); i++) {
-            //cout << (((a/(int(pow(2,i-1))))%2 == 0) && (a >= (int(pow(2,i-1)))));
-            if ((a/(int(pow(2,i-1))))%2 == 0) { // 判斷左或右
-                ans += pow(2,d-i-1);
-            }
-        }
-        //cout << "\n";
+        a--;
+        ans = pow(2, d-1); // 
+        temp = ans/2;
+	    for (; a; a>>=1, temp/=2) { 
+	    	if ((a & 1)) {
+	            ans += temp;
+	    	} 
+	    }
         printf("%d\n", ans);
     }
 }
