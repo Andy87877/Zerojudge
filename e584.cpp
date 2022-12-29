@@ -1,88 +1,171 @@
 #include <bits/stdc++.h>
+#define ll long long
+#define Andy8787_want_AC ios::sync_with_stdio(0),cin.tie(0);cout.tie(0);
 using namespace std;
 
-int m,n;
-char arr[25][25];
-bool check[25][25];
-char true_land;
-
-int bfs(int x, int y) {
-    int ans = 0;
-    queue<pair<int,int>> que; // (x,y)
-    pair<int,int> pa;
-    pa.first = x; pa.second = y;
-    que.push(pa);
-    while (!que.empty()) {
-        x = que.front().first;
-        y = que.front().second;
-        cout << x << " " << y << "\n";
-        if ((arr[x+1][y] == true_land) && (check[x+1][y] == 0)) {
-            pa.first = x+1; pa.second = y;
-            check[x+1][y] = 1;
-            que.push(pa);
-        }
-        if ((arr[x-1][y] == true_land) && (check[x-1][y] == 0)) {
-            pa.first = x-1; pa.second = y;
-            check[x-1][y] = 1;
-            que.push(pa);
-        }
-        if ((arr[x][y+1] == true_land) && (check[x][y+1] == 0)) {
-            pa.first = x; pa.second = y+1;
-            check[x][y+1] = 1;
-            que.push(pa);
-        }
-        if ((arr[x][y-1] == true_land) && (check[x][y-1] == 0)) {
-            pa.first = x; pa.second = y-1;
-            check[x][y-1] = 1;
-            que.push(pa);
-        }
-        if (y == 1) {
-            if ((arr[x][n-1] == true_land) && (check[x][n-1] == 0)) {
-                pa.first = x; pa.second = n-1;
-                check[x][n-1] = 1;
-                que.push(pa);
-            }
-        }
-        if (y == m-1) {
-            if ((arr[x][1] == true_land) && (check[x][1] == 0)) {
-                pa.first = x; pa.second = 1;
-                check[x][1] = 1;
-                que.push(pa);
-            }
-        }
-
-        que.pop();
-        ans++;
-    }
-    return ans;
-}
-
 int main() {
+    Andy8787_want_AC
+    ll m,n;
+    
     while (cin >> m >> n) {
-        memset(check, 0, sizeof(check));
-        memset(arr, '0', sizeof(arr));
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                cin >> arr[i][j];
-            }
-        }
-
-        
-        int x,y, mx = 0;
-        cin >> x >> y;
-        x++; y++;
-        true_land = arr[x][y];
-        check[x][y] = 1;
-        bfs(x,y); // 居住當前土地先排除
-
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if ((arr[i][j] == 'l') && (check[i][j] == 0)) {
-                    check[i][j] = 1;
-                    mx = max(bfs(i,j), mx);
-                }
-            }
-        }
-        cout << mx << "\n";
+    	
+    char arr[m][n], land;
+    for (ll i = 0; i < m; i++) {
+    	for (ll j = 0; j < n; j++) {
+    		cin >> arr[i][j];
+    	}
+    }
+    
+    ll x,y;
+    cin >> x >> y;
+    land = arr[x][y];
+	for (ll i = 0; i < m; i++) {
+    	for (ll j = 0; j < n; j++) {
+    		if (arr[i][j] == land) {
+    			arr[i][j] = 'l';
+    		} else {
+    			arr[i][j] = 'w';
+    		}
+    	}
+    }
+    
+    queue<pair<ll,ll>> que;
+    pair<ll,ll> pa;
+    
+    pa.first = x; pa.second = y;
+	que.push(pa);
+	
+	arr[x][y] = '.';
+	while (que.size() != 0) {
+		pa = que.front();
+		que.pop();
+		
+		x = pa.first; y = pa.second;
+		if (y != n-1) {
+			if (arr[x][y+1] == 'l') {
+				pa.first = x; pa.second = y+1;
+				arr[x][y+1] = '.';
+	    		que.push(pa);
+			} 
+		} else {
+			if (arr[x][0] == 'l') {
+				pa.first = x; pa.second = 0;
+				arr[x][0] = '.';
+	    		que.push(pa);
+			} 
+		}
+		
+		if (y != 0) {
+			if (arr[x][y-1] == 'l') {
+				pa.first = x; pa.second = y-1;
+				arr[x][y-1] = '.';
+	    		que.push(pa);
+			} 
+		} else {
+			if (arr[x][n-1] == 'l') {
+				pa.first = x; pa.second = n-1;
+				arr[x][n-1] = '.';
+	    		que.push(pa);
+			} 
+		}
+		
+		if (x != m-1) {
+			if (arr[x+1][y] == 'l') {
+				pa.first = x+1; pa.second = y;
+				arr[x+1][y] = '.';
+	    		que.push(pa);
+			} 
+		}
+		
+		if (x != 0) {
+			if (arr[x-1][y] == 'l') {
+				pa.first = x-1; pa.second = y;
+				arr[x-1][y] = '.';
+	    		que.push(pa);
+			} 
+		}
+	}
+	
+    // for (ll i = 0; i < m; i++) {
+    	// for (ll j = 0; j < n; j++) {
+    		// cout << arr[i][j];
+    	// }
+    	// cout << "\n";
+	// }
+    
+    ll ans = 0, tmp;
+    
+    for (ll i = 0; i < m; i++) {
+    	for (ll j = 0; j < n; j++) {
+    		if (arr[i][j] == 'l') {
+    			tmp = 0;
+    			pa.first = i; pa.second = j;
+				que.push(pa);
+				
+				arr[i][j] = ',';
+				while (que.size() != 0) {
+					tmp++;
+					pa = que.front();
+					que.pop();
+					x = pa.first; y = pa.second;
+					if (y != n-1) {
+						if (arr[x][y+1] == 'l') {
+							pa.first = x; pa.second = y+1;
+							arr[x][y+1] = ',';
+				    		que.push(pa);
+						} 
+					} else {
+						if (arr[x][0] == 'l') {
+							pa.first = x; pa.second = 0;
+							arr[x][0] = ',';
+				    		que.push(pa);
+						} 
+					}
+					
+					if (y != 0) {
+						if (arr[x][y-1] == 'l') {
+							pa.first = x; pa.second = y-1;
+							arr[x][y-1] = ',';
+				    		que.push(pa);
+						} 
+					} else {
+						if (arr[x][n-1] == 'l') {
+							pa.first = x; pa.second = n-1;
+							arr[x][n-1] = ',';
+				    		que.push(pa);
+						} 
+					}
+					
+					if (x != m-1) {
+						if (arr[x+1][y] == 'l') {
+							pa.first = x+1; pa.second = y;
+							arr[x+1][y] = ',';
+				    		que.push(pa);
+						} 
+					}
+					
+					if (x != 0) {
+						if (arr[x-1][y] == 'l') {
+							pa.first = x-1; pa.second = y;
+							arr[x-1][y] = ',';
+				    		que.push(pa);
+						} 
+					}
+				}
+				
+				if (ans < tmp) ans = tmp;
+    		}
+    	}
+    }
+    
+    cout << ans << "\n";   
+     
+    // for (ll i = 0; i < m; i++) {
+    	// for (ll j = 0; j < n; j++) {
+    		// cout << arr[i][j];
+    	// }
+    	// cout << "\n";
+    // }
+    
     }
 }
