@@ -1,14 +1,14 @@
 // #include <bits/stdc++.h>
 // #define ll long long
 // using namespace std;
-// ll n, k, tmp, tmpfront; // tmpç¾åœ¨ tmpfrontç¾åœ¨å‰ä¸€å€‹
+// ll n, k, tmp, tmpfront; // tmp??¾å?? tmpfront??¾å?¨å??ä¸????
 // ll nodemx, pathtimes;
-// ll h[100001]; // é«˜åº¦
-// ll nodenum[100001]; //ç¯€é»æ•¸é‡
-// ll nodecheck[100001]; //ç•¶å‰ç¯€é»èµ°çš„æ•¸é‡
-// ll nodefront[100001]; //å‰é¢ä¸€å€‹ç¯€é»
-// ll nodenext[100001]; //ä¸‹é¢ä¸€å€‹ç¯€é»(æš«æ™‚çš„)
-// vector<vector<ll>> relate(100001); // é—œä¿‚åœ– 1~n
+// ll h[100001]; // é«?åº?
+// ll nodenum[100001]; //ç¯?é»???¸é??
+// ll nodecheck[100001]; //??¶å??ç¯?é»?èµ°ç????¸é??
+// ll nodefront[100001]; //?????¢ä?????ç¯?é»?
+// ll nodenext[100001]; //ä¸???¢ä?????ç¯?é»?(??«æ?????)
+// vector<vector<ll>> relate(100001); // ???ä¿???? 1~n
 
 // int main() {
 //     cin >> n;
@@ -26,16 +26,16 @@
 //             }
 //             relate[i] = tempvec;
 //         } else {
-//             h[i] = 0; // ç„¡å­ç¯€é»
+//             h[i] = 0; // ??¡å??ç¯?é»?
 //             relate[i] = {};
 //         }
 //     }
 
-//     for (ll now = 1; now <= n; now++) { // ç…§é †åºç…§é»
+//     for (ll now = 1; now <= n; now++) { // ??§é??åº???§é??
 //         tmp = now;
-//         if (h[tmp] == -1) { // å¦‚æœé‚„æ²’ç”¨é
+//         if (h[tmp] == -1) { // å¦???????æ²???¨é??
 //             pathtimes = 0;
-//             vector<ll> tempvec; //è¦è™•ç†çš„
+//             vector<ll> tempvec; //è¦??????????
 //             for (auto i: relate[tmp]){
 //                 nodefront[i] = tmp;
 //                 tempvec.push_back(i);
@@ -59,7 +59,7 @@
 //                         tempvec.push_back(i);
 //                     }
 //                 }
-//                 tempvec.erase(tempvec.begin()); // æ’é™¤å‰é¢
+//                 tempvec.erase(tempvec.begin()); // ?????¤å?????
 //             }
 //         }
 //     }
