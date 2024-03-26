@@ -5,5 +5,11 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << char(65);
+    ll a[3], mx = -1111;
+    for (ll i = 0; i < 3; i++) {
+        cin >> a[i];
+        mx = max(mx, a[i]);
+    }
+
+    cout << mx << endl;
 }
