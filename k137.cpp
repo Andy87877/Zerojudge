@@ -5,5 +5,9 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << char(65);
+    ll a,b;
+    cin >> a >> b;
+    ll ans = pow(a,b);
+
+    cout << a << "^" << b << " = " << ans; 
 }

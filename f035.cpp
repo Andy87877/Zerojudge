@@ -5,5 +5,10 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << char(65);
+    string s;
+    getline(cin,s);
+    for (ll i = 0; i < s.size()-1; i++) {
+        cout << int(s[i]) << "_";
+    }
+    cout << int(s[s.size()-1]);
 }

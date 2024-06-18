@@ -5,5 +5,7 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << char(65);
+    string s;
+    getline(cin, s);
+    cout << "Go, " << s << ", go go";
 }

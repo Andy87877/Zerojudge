@@ -5,5 +5,12 @@ using namespace std;
 
 int main() {
     Andy8787_want_AC
-    cout << char(65);
+    ll n, total = 0;
+    cin >> n;
+    for (ll i = 0; i < n; i++){
+        ll a;
+        cin >> a;
+        if (a <= 10) total++;
+    }
+    cout << total << endl;
 }
